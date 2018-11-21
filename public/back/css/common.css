@@ -148,3 +148,10 @@ ul {
     color: #fff;
     font-size: 20px;
 }
+
+.lt_content .echarts_left,
+.lt_content .echarts_right {
+    width: 48%;
+    height: 400px;
+    background-color: pink;
+}
