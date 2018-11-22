@@ -26,7 +26,7 @@
             <ul>
                 <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
                 <li><a href="javascript:;" id="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
-                    <div class="child">
+                    <div class="child" style="display:block">
                         <a href="first.html">一级分类</a>
                         <a class="current" href="second.html">二级分类</a>
                     </div>
@@ -51,13 +51,35 @@
                 <li class="active">二级分类</li>
             </ol>
 
+            <div class="lt_content">
+                <button class="btn btn-default">添加分类</button>
+                <table class="table table-bordered table-hover mt_20">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>一级分类名称</th>
+                            <th>二级分类名称</th>
+                            <th>二级分类LOGO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--  -->
+                    </tbody>
+                </table>
+
+                <div class="text-right">
+                    <ul id="paginator"></ul>
+                </div>
+
+            </div>
+
 
 
         </div>
     </div>
 
 
-    <!-- 模态框 -->
+    <!-- 退出模态框 -->
     <div class="modal fade" tabindex="-1" id="logoutModal">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -77,12 +99,29 @@
     </div>
 
 
+    <script type="text/html" id="secondTpl">
+        {{ each rows v i }}
+        <tr>
+                <td>{{i+1+(page-1)*size}}</td>
+                <td>{{v.categoryName}}</td>
+                <td>{{v.brandName}}</td>
+                <td>
+                    <img style="height:50px;" src="{{v.brandLogo}}" alt="">
+                </td>
+            </tr>
+            {{ /each }}
+    </script>
+
+
     <script src="./lib/jquery/jquery.min.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/common.js"></script>
     <script src="./js/isLogin.js"></script>
+    <script src="./js/second.js"></script>
 </body>
 
 </html>
