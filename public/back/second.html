@@ -84,7 +84,9 @@
                         <h4 class="modal-title">添加分类</h4>
                     </div>
                     <div class="modal-body">
+
                         <div class="form-group">
+                            <!-- 下拉菜单 -->
                             <div class="dropdown">
                                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                                     <span id="dropdownText">请选择一级分类</span>
@@ -94,6 +96,8 @@
                                     <!--  -->
                                 </ul>
                             </div>
+                            <input type="hidden" name="categoryId">
+                            <input type="hidden" name="hot" value="1">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="请输入二级分类" name="brandName">
@@ -101,10 +105,12 @@
                         <div class="form-group">
 
                             <label for="fileupload" class="btn btn-default">上传图片</label>
-                            <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" style="display:none">
+                            <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic"
+                                style="display:none">
                         </div>
                         <div class="form-group" id="imgBox">
                             <img src="./images/none.png" style="width:100px;">
+                            <input type="hidden" name="brandLogo">
                         </div>
 
                     </div>
@@ -154,7 +160,7 @@
 
     <script type="text/html" id="dropdownTpl">
         {{ each rows v i }}
-        <li><a tabindex="-1" href="#">{{v.categoryName}}</a></li>
+        <li><a data-id="{{v.id}}" tabindex="-1" href="#">{{v.categoryName}}</a></li>
     {{ /each }}
     </script>
 

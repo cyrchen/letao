@@ -58,6 +58,11 @@ $(function () {
         var txt = $(this).text();
         $("#dropdownText").text(txt);
 
+        var id = $(this).data("id");
+        $('[name="categoryId"]').val(id);
+
+        $("#form").data("bootstrapValidator").updateStatus("categoryId", "VALID");
+
     });
 
     // 4.调用fileUpload 方法, 发送文件上传请求
@@ -68,6 +73,43 @@ $(function () {
             var result = data.result;
             var picUrl = result.picAddr;
             $("#imgBox img").attr("src", picUrl);
+
+            $('[name="brandLogo"]').val(picUrl);
+            $("#form").data("bootstrapValidator").updateStatus("brandLogo", "VALID");
+
+        }
+    })
+
+    // 5.添加表单校验
+    $("#form").bootstrapValidator({
+        excluded: [],
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            categoryId: {
+                validators: {
+                    notEmpty: {
+                        message: "请选择一级分类"
+                    }
+                }
+            },
+            brandName: {
+                validators: {
+                    notEmpty: {
+                        message: "请输入二级分类"
+                    }
+                }
+            },
+            brandLogo: {
+                validators: {
+                    notEmpty: {
+                        message: "请上传图片"
+                    }
+                }
+            },
         }
     })
 
