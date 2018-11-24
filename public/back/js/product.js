@@ -56,6 +56,11 @@ $(function () {
     $(".dropdown-menu").on("click", "a", function () {
         var txt = $(this).text();
         $("#dropdownText").text(txt);
+
+        var id = $(this).data('id');
+        $('[name="brandId"]').val(id);
+
+        $("#form").data("bootstrapValidator").updateStatus("brandId", "VALID");
     })
 
     //4.文件上传 
@@ -154,6 +159,34 @@ $(function () {
                 }
             },
         }
+    })
+
+    // 6. 注册表单校验成功事件, 阻止默认的提交, 通过 ajax提交
+    $('#form').on("success.form.bv", function (e) {
+        e.preventDefault();
+
+        var paramsStr = $("#form").serialize();
+        paramsStr += "&picName1=" + picArr[0].picName + "$picAddr1=" + picArr[0].picAddr;
+        paramsStr += "&picName1=" + picArr[1].picName + "$picAddr1=" + picArr[1].picAddr;
+        paramsStr += "&picName1=" + picArr[2].picName + "$picAddr1=" + picArr[2].picAddr;
+
+        $.ajax({
+            type: 'post',
+            url: '/product/addProduct',
+            data: paramsStr,
+            dataType: "json",
+            success: function (info) {
+                console.log(info);
+                if (info.success) {
+                    $("#addModal").modal("hide");
+                    rander();
+                    $("#form").data("bootstrapValidator").resetForm(true);
+                    $("#dropdownText").text("请选择二级分类");
+                    $("#imgBox img").remove();
+                    picArr = [];
+                }
+            }
+        })
     })
 
 })
