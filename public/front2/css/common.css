@@ -4,16 +4,19 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 img {
   display: block;
   width: 100%;
 }
 
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }
+
 .lt_container {
   width: 100%;
   height: 100%;
@@ -26,6 +29,7 @@ html, body {
   position: relative;
   overflow: hidden;
 }
+
 .lt_header {
   width: 100%;
   height: 45px;
@@ -35,6 +39,7 @@ html, body {
   background-color: #006699;
   padding: 0 45px;
 }
+
 .lt_header .icon_left,
 .lt_header .icon_right {
   width: 45px;
@@ -45,12 +50,15 @@ html, body {
   line-height: 45px;
   color: #fff;
 }
+
 .lt_header .icon_left {
   left: 0;
 }
+
 .lt_header .icon_right {
   right: 0;
 }
+
 .lt_header h3 {
   font-size: 20px;
   text-align: center;
@@ -70,23 +78,28 @@ html, body {
   bottom: 0;
   background-color: #006699;
 }
+
 .lt_footer li {
   float: left;
   width: 25%;
 }
+
 .lt_footer li a {
   display: block;
   text-align: center;
   color: #fff;
   padding-top: 8px;
 }
+
 .lt_footer li a p {
   margin: 0;
   color: #fff;
 }
+
 .lt_footer li a.current {
   color: orange;
 }
+
 .lt_footer li a.current p {
   color: orange;
 }
@@ -106,6 +119,7 @@ html, body {
   padding: 10px;
   position: relative;
 }
+
 .lt_search .search_input {
   font-size: 12px;
   margin: 0;
@@ -113,6 +127,7 @@ html, body {
   border: 1px solid #007AFF;
   border-radius: 5px;
 }
+
 .lt_search .search_btn {
   position: absolute;
   right: 10px;
@@ -128,6 +143,7 @@ html, body {
   padding: 10px;
   text-align: center;
 }
+
 .lt_product li {
   float: left;
   width: 48%;
@@ -135,16 +151,20 @@ html, body {
   border-radius: 4px;
   margin-bottom: 20px;
 }
+
 .lt_product li:nth-child(2n+1) {
   margin-right: 4%;
 }
+
 .lt_product li a {
   display: block;
   padding: 10px;
 }
+
 .lt_product li .price {
   color: red;
 }
+
 .lt_product li .oldPrice {
   text-decoration: line-through;
 }
