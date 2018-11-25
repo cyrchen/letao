@@ -102,7 +102,7 @@ $(function () {
 
         $(".search_input").val("");
 
-
+        location.href = "search_list.html?key=" + key;
     })
 
 
